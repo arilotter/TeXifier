@@ -14,7 +14,7 @@ app.post("/", function(req, res) {
       method: "post",
       form: {
         formula: req.body.text,
-        fsize: "20px",
+        fsize: "36px",
         fcolor: "000000",
         mode: "0",
         out: "1",
