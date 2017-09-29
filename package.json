@@ -17,7 +17,7 @@
     "mathjax-node": "^1.2.1"
   },
   "devDependencies": {
-    "request": "^2.81.0",
+    "request": "^2.83.0",
     "tape": "^4.7.0"
   },
   "repository": {
