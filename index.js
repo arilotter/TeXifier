@@ -7,14 +7,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.set("port", process.env.PORT || 5000);
 
-app.post("/", function(request, response) {
-  console.log(request.body.text);
+app.post("/", function(req, res) {
   request(
     {
       url: "http://quicklatex.com/latex3.f/",
       method: "post",
       form: {
-        formula: request.body.text,
+        formula: req.body.text,
         fsize: "20px",
         fcolor: "000000",
         mode: "0",
@@ -28,7 +27,7 @@ app.post("/", function(request, response) {
     (error, response, body) => {
       if (error) {
         console.log(error);
-        return response.status(500).send("something broke!");
+        return res.status(500).send("something broke!");
       }
       var image = body.split("\n")[1].split(" ")[0];
 
@@ -44,7 +43,7 @@ app.post("/", function(request, response) {
           }
         ]
       };
-      response.status(200).send(params);
+      res.status(200).send(params);
     }
   );
 });
